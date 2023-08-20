@@ -44,7 +44,7 @@
        <rect>
         <x>544</x>
         <y>100</y>
-        <width>141</width>
+        <width>151</width>
         <height>81</height>
        </rect>
       </property>
@@ -52,7 +52,7 @@
        <string notr="true">background-color: rgb(255, 170, 255);</string>
       </property>
       <property name="text">
-       <string>Показать</string>
+       <string> Показать номера</string>
       </property>
      </widget>
      <widget class="QTableWidget" name="tableWidget">
@@ -85,6 +85,9 @@
       <property name="horizontalScrollBarPolicy">
        <enum>Qt::ScrollBarAlwaysOn</enum>
       </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContents</enum>
+      </property>
       <property name="tabKeyNavigation">
        <bool>true</bool>
       </property>
@@ -93,6 +96,9 @@
       </property>
       <property name="dragDropOverwriteMode">
        <bool>true</bool>
+      </property>
+      <property name="defaultDropAction">
+       <enum>Qt::CopyAction</enum>
       </property>
       <property name="rowCount">
        <number>50000</number>
@@ -50127,6 +50133,27 @@
         <string>               Номер  </string>
        </property>
       </column>
+      <column>
+       <property name="text">
+        <string> Комментарий</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QPushButton" name="pushButton_Cjnnect">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>270</y>
+        <width>151</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>Подключить справочник</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab">
@@ -50490,22 +50517,6 @@
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_returnn_umber">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>100</y>
-        <width>301</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="readOnly">
-       <bool>true</bool>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pushButton_Found">
       <property name="geometry">
        <rect>
@@ -50533,6 +50544,19 @@
       </property>
       <property name="text">
        <string>         Имя</string>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listWidget">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>110</y>
+        <width>301</width>
+        <height>311</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
      </widget>
     </widget>
