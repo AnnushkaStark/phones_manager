@@ -24,7 +24,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>20</y>
       <width>721</width>
       <height>471</height>
      </rect>
@@ -33,7 +33,7 @@
      <string notr="true">background-color: rgb(255, 255, 127);</string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_6">
      <attribute name="title">
@@ -50228,6 +50228,32 @@
        <string>           Номер</string>
       </property>
      </widget>
+     <widget class="QLineEdit" name="lineEdit_add_new_comment">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>140</y>
+        <width>301</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>120</y>
+        <width>121</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>       Коммментарий</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -50259,7 +50285,7 @@
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_add_new_number_2">
+     <widget class="QLineEdit" name="lineEdit_update_comment">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -50325,6 +50351,32 @@
       </property>
       <property name="text">
        <string>           Новый номер</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_update_comment_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>190</y>
+        <width>301</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>170</y>
+        <width>161</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>        Новый комментарий</string>
       </property>
      </widget>
     </widget>
@@ -50424,6 +50476,32 @@
       </property>
       <property name="text">
        <string>           Новое  имя</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_NeW_name_comment">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>190</y>
+        <width>301</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>170</y>
+        <width>131</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Новый комментарий</string>
       </property>
      </widget>
     </widget>
