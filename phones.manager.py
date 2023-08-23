@@ -37,7 +37,7 @@ class Phone_Manager(Ui_MainWindow,QMainWindow):
         self.querry_selet_all_sort = '''SELECT  ID, Name, Phone, Comment FROM Phons ORDER BY Name'''
         self.querry_update_number = '''UPDATE Phons SET Name = ? WHERE Name LIKE ? AND Phone LIKE ?'''
         self.querry_update_name = '''UPDATE Phons SET Phone = ? WHERE Name LIKE ? AND Phone LIKE ? '''
-        self.querry_delet_row = '''DELETE FROM Phons WHERE Phone LIKE ? Name LIKE ?'''
+        self.querry_delet_row = '''DELETE FROM Phons WHERE Phone LIKE ? AND Name LIKE ?'''
         self.querry_found_row = '''SELECT  Name, Phone FROM Phons WHERE Name LIKE ? AND Phone LIKE ?'''
         self.querry_found_number =  '''SELECT FROM Phons Phone Comment WHERE Name LiKE ?'''
 
@@ -116,15 +116,15 @@ class Phone_Manager(Ui_MainWindow,QMainWindow):
             try:
                 if del_name.strip() and del_number.strip():
                     result = conn.cursor().execute(self.querry_found_row,(del_name,del_number))
-                    if result:
-                        conn.cursor().execute(self.querry_delet_row,(del_name,del_number))
-                        res ='Запись удалена'
+                if result:
+                    conn.cursor().execute(self.querry_delet_row,(del_name,del_number))
+                    res ='Запись удалена'
                     
-                    else:
-                        res = 'Заполнены не все поля или запись не сущестовала'
-                    result =  QMessageBox()
-                    result.setText(res)
-                    result.exec()
+                else:
+                    res = 'Заполнены не все поля или запись не сущестовала'
+                result =  QMessageBox()
+                result.setText(res)
+                result.exec()
             except Exception:
                 result =  QMessageBox()
                 result.setText('Ошибка удаления строки')
