@@ -32,9 +32,9 @@ background-color: rgb(122, 0, 0);
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>2</number>
     </property>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="widget">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -81,6 +81,9 @@ color: rgb(255, 255, 255);</string>
       </property>
      </widget>
      <widget class="QTableWidget" name="tableWidget">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>40</x>
@@ -141,8 +144,8 @@ background-color: rgb(255, 255, 255);</string>
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>511</width>
-       <height>491</height>
+       <width>100</width>
+       <height>30</height>
       </rect>
      </property>
      <attribute name="label">
@@ -248,6 +251,14 @@ color: rgb(255, 255, 255);</string>
      </widget>
     </widget>
     <widget class="QWidget" name="page">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>511</width>
+       <height>491</height>
+      </rect>
+     </property>
      <attribute name="label">
       <string>Изменить номер</string>
      </attribute>
@@ -341,7 +352,7 @@ color: rgb(0, 0, 0);</string>
       <property name="geometry">
        <rect>
         <x>120</x>
-        <y>310</y>
+        <y>270</y>
         <width>271</width>
         <height>22</height>
        </rect>
@@ -355,7 +366,7 @@ color: rgb(0, 0, 0);</string>
       <property name="geometry">
        <rect>
         <x>120</x>
-        <y>260</y>
+        <y>320</y>
         <width>271</width>
         <height>22</height>
        </rect>
@@ -423,6 +434,14 @@ color: rgb(255, 255, 255);</string>
      </widget>
     </widget>
     <widget class="QWidget" name="page_7">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>100</width>
+       <height>30</height>
+      </rect>
+     </property>
      <attribute name="label">
       <string>Удалить номер</string>
      </attribute>
@@ -499,6 +518,14 @@ color: rgb(255, 255, 255);</string>
      </widget>
     </widget>
     <widget class="QWidget" name="page_8">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>100</width>
+       <height>30</height>
+      </rect>
+     </property>
      <attribute name="label">
       <string>Найти номера</string>
      </attribute>

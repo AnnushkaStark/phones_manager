@@ -36,6 +36,7 @@ class Ui_MainWindow(object):
 "color: rgb(255, 255, 255);")
         self.pushButton_Connect.setObjectName("pushButton_Connect")
         self.tableWidget = QtWidgets.QTableWidget(parent=self.widget)
+        self.tableWidget.setEnabled(True)
         self.tableWidget.setGeometry(QtCore.QRect(40, 80, 421, 391))
         self.tableWidget.setStyleSheet("color: rgb(0, 0, 0);\n"
 "background-color: rgb(255, 255, 255);")
@@ -59,7 +60,7 @@ class Ui_MainWindow(object):
         self.tableWidget.verticalHeader().setVisible(False)
         self.toolBox.addItem(self.widget, "")
         self.page_4 = QtWidgets.QWidget()
-        self.page_4.setGeometry(QtCore.QRect(0, 0, 511, 491))
+        self.page_4.setGeometry(QtCore.QRect(0, 0, 100, 30))
         self.page_4.setObjectName("page_4")
         self.lineEdit_Added_name = QtWidgets.QLineEdit(parent=self.page_4)
         self.lineEdit_Added_name.setGeometry(QtCore.QRect(110, 40, 271, 22))
@@ -92,6 +93,7 @@ class Ui_MainWindow(object):
         self.pushButton_Added.setObjectName("pushButton_Added")
         self.toolBox.addItem(self.page_4, "")
         self.page = QtWidgets.QWidget()
+        self.page.setGeometry(QtCore.QRect(0, 0, 511, 491))
         self.page.setObjectName("page")
         self.lineEdit_found_name = QtWidgets.QLineEdit(parent=self.page)
         self.lineEdit_found_name.setGeometry(QtCore.QRect(120, 20, 271, 22))
@@ -121,12 +123,12 @@ class Ui_MainWindow(object):
 "color: rgb(0, 0, 0);")
         self.lineEdit_update_name.setObjectName("lineEdit_update_name")
         self.lineEdit_update_number = QtWidgets.QLineEdit(parent=self.page)
-        self.lineEdit_update_number.setGeometry(QtCore.QRect(120, 310, 271, 22))
+        self.lineEdit_update_number.setGeometry(QtCore.QRect(120, 270, 271, 22))
         self.lineEdit_update_number.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.lineEdit_update_number.setObjectName("lineEdit_update_number")
         self.lineEdit_update_comment = QtWidgets.QLineEdit(parent=self.page)
-        self.lineEdit_update_comment.setGeometry(QtCore.QRect(120, 260, 271, 22))
+        self.lineEdit_update_comment.setGeometry(QtCore.QRect(120, 320, 271, 22))
         self.lineEdit_update_comment.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.lineEdit_update_comment.setObjectName("lineEdit_update_comment")
@@ -146,6 +148,7 @@ class Ui_MainWindow(object):
         self.pushButton_Update.setObjectName("pushButton_Update")
         self.toolBox.addItem(self.page, "")
         self.page_7 = QtWidgets.QWidget()
+        self.page_7.setGeometry(QtCore.QRect(0, 0, 100, 30))
         self.page_7.setObjectName("page_7")
         self.lineEdit_del_nume = QtWidgets.QLineEdit(parent=self.page_7)
         self.lineEdit_del_nume.setGeometry(QtCore.QRect(100, 90, 271, 22))
@@ -170,6 +173,7 @@ class Ui_MainWindow(object):
         self.pushButton_dell.setObjectName("pushButton_dell")
         self.toolBox.addItem(self.page_7, "")
         self.page_8 = QtWidgets.QWidget()
+        self.page_8.setGeometry(QtCore.QRect(0, 0, 100, 30))
         self.page_8.setObjectName("page_8")
         self.pushButton_claer = QtWidgets.QPushButton(parent=self.page_8)
         self.pushButton_claer.setGeometry(QtCore.QRect(310, 20, 141, 24))
@@ -205,7 +209,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.toolBox.setCurrentIndex(3)
+        self.toolBox.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

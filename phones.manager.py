@@ -18,10 +18,13 @@ class Phone_Manager(Ui_MainWindow,QMainWindow):
         self.querry_selet_all_sort = '''SELECT  ID, Name, Phone, Comment FROM Phons ORDER BY Name'''
         self.querry_update_number = '''UPDATE Phons SET Phone = ? WHERE Phone LIKE ? '''
         self.querry_update_comment  ='''UPDATE Phons SET Comment = ? WHERE Comment LIKE ?'''
-        self.querry_update_name = '''UPDATE Phons SET Name = ? WHERE Name LIKE ? '''
+        self.querry_update_name = '''UPDATE Phons SET Name = ? WHERE Name LIKE ?  '''
         self.querry_delet_row = '''DELETE FROM Phons WHERE Phone LIKE ? AND Name LIKE ?'''
         self.querry_found_row = '''SELECT  Name, Phone  FROM Phons WHERE Name LIKE ? AND Phone LIKE ?'''
-        self.querry_found_number =  '''SELECT Phone, Comment FROM Phons  WHERE Name LiKE ?'''
+        self.querry_found_number =  '''SELECT Phone, Comment FROM Phons WHERE Name LIKE ?'''
+        self.found_row_for_changes = '''SELECT  Name, Phone, Comment  FROM Phons WHERE Name LIKE ? AND Phone LIKE ?'''
+        self.big_update = '''UPDATE Phons SET Name =? , Phone = ? WHERE Name LIKE ? AND Phone LIKE ?'''
+
         self.pushButton_Connect.clicked.connect(self.connect)
         self.pushButton_Show_All.clicked.connect(self.select_all)
         self.lineEdit_Added_name.text()
@@ -132,19 +135,19 @@ class Phone_Manager(Ui_MainWindow,QMainWindow):
     def update_number(self):
         with sql.connect(self.database) as conn:
             try:
-                old_number = self.lineEdit_Old_name.text() 
-                old_name = self.lineEdit_old_name.text()
-                new_number = self.lineEdit_update_number.text()
-                new_comment = self.lineEdit_update_comment_2.text()
-                if old_number.strip() and old_name.strip() and new_number.strip() and new_comment == '' or old_number.strip() and old_name.strip() and new_number.strip() and new_comment.srip(): 
-                    result = conn.cursor().execute(self.querry_found_row,(old_name,old_number))
-                    print(result)
-                    if result:
-                        conn.cursor().execute(self.querry_update_number,(new_number,old_number))
-                        #conn.cursor().execute(self.querry_update_comment,(new_comment,old_number))
-                        res ='Запись обновлена'
+                Old_number =self.lineEdit_found_number.text()
+                Old_name = self.lineEdit_found_name.text()
+                new_number =self.lineEdit_update_number.text()
+                new_name = self.lineEdit_update_name.text()
+                new_comment = self.lineEdit_update_comment.text() 
+                if Old_number.strip() and Old_name.strip() and new_number.strip() and  new_name.strip() and new_comment.strip():
+                    res = conn.cursor().execute(self.found_row_for_changes,(Old_name,Old_number))
+                 
+                    for row in res:
+                        conn.cursor().execute(self.big_update,(new_name,new_number, row[0],row[1]))
+                        conn.cursor().execute(self.querry_update_comment,(new_comment,row[2]))
                         result =  QMessageBox()
-                        result.setText(res)
+                        result.setText("Запись изменена")
                         result.exec()
                 else:
                     result =  QMessageBox()
@@ -153,9 +156,7 @@ class Phone_Manager(Ui_MainWindow,QMainWindow):
             except sql.OperationalError:
                 result =  QMessageBox()
                 result.setText('Изменяемый номер не найден')
-                result.exec()
             except sql.IntegrityError:
-                result =  QMessageBox()
                 result.setText('Номер уже существует')
                 result.exec()
             except Exception:
@@ -172,30 +173,24 @@ class Phone_Manager(Ui_MainWindow,QMainWindow):
     def found_number(self):
         with sql.connect(self.database) as conn:
             try:
-                found_name = self.lineEdit_Found_name.text()
+                found_name = self.lineEdit_found_many_name.text()
                 if found_name.strip():
                     res = conn.cursor().execute(self.querry_found_number,(found_name)).fetchall()
-                    print(res)
-                    if res:
-                        for row in res:
-                            self.textEdit.setText(*row)
-                    else:
-                        result = QMessageBox()
-                        result.setText('Имя не найдено')
-                        result.exec()
+                    for row in res:
+                        print(row)
+                    #self.listWidget.addItems(res)
                 else:
                     result = QMessageBox()
                     result.setText('Введите имя')
                     result.exec()
             except sql.OperationalError:
                 result = QMessageBox()
-                result.setText('Ошибка выполнения')
+                result.setText('Имя не найдено')
                 result.exec() 
-            except Exception:
+            except sql.ProgrammingError:
                 result = QMessageBox()
-                result.setText('Ошибка выполнения')
-                result.exec()
-
+                result.setText('Error')
+                result.exec() 
 
 
 
