@@ -7,6 +7,7 @@ from PyQt6 import *
 import sqlite3 as sql
 from user_interface import *
 
+
 class Phone_Manager(Ui_MainWindow,QMainWindow):
     def __init__(self):
         super().__init__()
