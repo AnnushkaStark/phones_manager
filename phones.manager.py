@@ -42,7 +42,7 @@ class Phone_Manager(Ui_MainWindow,QMainWindow):
         self.pushButton_dell.clicked.connect(self.delete_row)
         self.lineEdit_found_many_name.text()
         self.pushButton_Found.clicked.connect(self.found_number)
-        self.pushButton_claer.clicked.connect(self.clear)
+        self.pushButton_claer.clicked.connect(self.clear_list)
         self.listWidget.addItems([])
 
     def connect(self):
@@ -197,7 +197,9 @@ class Phone_Manager(Ui_MainWindow,QMainWindow):
 
 
     def clear_list(self):
-        pass
+        self.listWidget.clear()
+        
+        
 
 
         
