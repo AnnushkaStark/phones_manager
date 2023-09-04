@@ -21,7 +21,7 @@ class Phone_Manager(Ui_MainWindow,QMainWindow):
         self.querry_update_name = '''UPDATE Phons SET Name = ? WHERE Name LIKE ?  '''
         self.querry_delet_row = '''DELETE FROM Phons WHERE Phone LIKE ? AND Name LIKE ?'''
         self.querry_found_row = '''SELECT  Name, Phone  FROM Phons WHERE Name LIKE ? AND Phone LIKE ?'''
-        self.querry_found_number =  '''SELECT Phone, Comment FROM Phons WHERE Name LIKE ?'''
+        self.querry_found_number =  '''SELECT Phone, Comment FROM Phons WHERE Name = ?'''
         self.found_row_for_changes = '''SELECT  Name, Phone, Comment  FROM Phons WHERE Name LIKE ? AND Phone LIKE ?'''
         self.big_update = '''UPDATE Phons SET Name =? , Phone = ? WHERE Name LIKE ? AND Phone LIKE ?'''
 
@@ -175,10 +175,12 @@ class Phone_Manager(Ui_MainWindow,QMainWindow):
             try:
                 found_name = self.lineEdit_found_many_name.text()
                 if found_name.strip():
-                    res = conn.cursor().execute(self.querry_found_number,(found_name)).fetchall()
+                    res = conn.cursor().execute(self.querry_found_number,(found_name,)).fetchall()
+                    
                     for row in res:
-                        print(row)
-                    #self.listWidget.addItems(res)
+                        
+                        self.listWidget.addItems((row[0],row[1], " "))
+                        
                 else:
                     result = QMessageBox()
                     result.setText('Введите имя')
